@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    // constructor of the components
     private Button button;
     private EditText usernameField, passwordField;
 
@@ -29,17 +30,26 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Get the id's of the text field
         usernameField = findViewById(R.id.editTextText2);
         passwordField = findViewById(R.id.editTextTextPassword2);
 
+        // Button id
         button  = findViewById(R.id.button);
+
+        // Event listener
         button.setOnClickListener(v -> {
+
+            // Convert them to string
             String username = usernameField.getText().toString();
             String password = passwordField.getText().toString();
 
+            // Conditional statement to verify the data entered by the user
             if (username.isEmpty() || password.isEmpty()){
                 Toast.makeText(MainActivity.this, "Please fill in all the blanks", Toast.LENGTH_SHORT).show();
             }
+
+            // If it's not empty, then display a welcome message to the user and their input data
             else{
                 Toast.makeText(MainActivity.this, "Login successful, Welcome User " + username + "Your Password is " + password , Toast.LENGTH_SHORT).show();
             }
